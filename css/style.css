@@ -1,0 +1,440 @@
+/*
+  Archivo: style.css
+  Descripción: Estilos para la tienda 
+  Estilo: Underground - Colores oscuros, acentos llamativos, tipografía robusta.
+*/
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* Incluye padding y borde en el ancho/alto total */
+}
+
+/* Variables CSS para una gestión de colores más sencilla */
+:root {
+    --color-bg-dark: #1a1a1a; /* Fondo oscuro principal */
+    --color-text-light: #f0f0f0; /* Texto claro principal */
+    --color-accent-red: #e74c3c; /* Acento rojo intenso */
+    --color-accent-gray: #7f8c8d; /* Gris para detalles secundarios */
+    --color-button-hover: #c0392b; /* Rojo más oscuro para hover de botones */
+    --color-border: #34495e; /* Borde oscuro sutil */
+    --font-heading: 'Arial Black', sans-serif; /* Fuente impactante para títulos */
+    --font-body: 'Arial', sans-serif; /* Fuente legible para el cuerpo */
+}
+
+/* --- 1. Estilos Globales y Tipografía --- */
+body {
+    font-family: var(--font-body);
+    line-height: 1.6;
+    color: var(--color-text-light);
+    background-color: var(--color-bg-dark);
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Asegura que el footer esté siempre abajo */
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+    color: var(--color-text-light);
+    margin-bottom: 15px;
+    text-transform: uppercase; /* Letras mayúsculas para un look más fuerte */
+}
+
+h1 { font-size: 2.8em; }
+h2 { font-size: 2.2em; }
+h3 { font-size: 1.8em; }
+
+a {
+    color: var(--color-accent-red);
+    text-decoration: none;
+    transition: color 0.3s ease; /* Transición suave para los enlaces */
+}
+
+a:hover {
+    color: var(--color-text-light); /* Cambio de color al pasar el mouse */
+}
+
+p {
+    margin-bottom: 1em;
+}
+
+/* --- 2. Header y Navegación (Navbar) --- */
+header {
+    background-color: var(--color-bg-dark);
+    padding: 20px 40px;
+    border-bottom: 2px solid var(--color-border);
+    position: sticky; /* Navbar pegajosa en la parte superior */
+    top: 0;
+    z-index: 1000; /* Asegura que esté por encima de otros elementos */
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto; /* Centra la navegación */
+}
+
+nav .logo h1 {
+    margin: 0;
+    font-size: 2.5em;
+    letter-spacing: 2px; /* Espaciado entre letras para el logo */
+}
+
+nav .logo a {
+    color: var(--color-text-light);
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+}
+
+nav ul li {
+    margin-left: 30px;
+}
+
+nav ul li a {
+    color: var(--color-text-light);
+    font-weight: bold;
+    font-size: 1.1em;
+    padding: 5px 0;
+    position: relative;
+}
+
+nav ul li a::after { /* Efecto de subrayado al pasar el mouse */
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 3px;
+    background-color: var(--color-accent-red);
+    bottom: -5px;
+    left: 0;
+    transition: width 0.3s ease;
+}
+
+nav ul li a:hover::after,
+nav ul li a.active::after { /* Clase 'active' para la página actual */
+    width: 100%;
+}
+
+/* --- 3. Contenido Principal (Main) --- */
+main {
+    flex-grow: 1; /* Permite que el contenido principal ocupe el espacio restante */
+    padding: 40px 20px;
+    max-width: 1200px;
+    margin: 0 auto; /* Centra el contenido principal */
+}
+
+section {
+    margin-bottom: 60px;
+    padding: 30px;
+    background-color: rgba(0, 0, 0, 0.3); /* Fondo semitransparente para secciones */
+    border-radius: 8px;
+    border: 1px solid var(--color-border);
+}
+
+/* --- 4. Hero Section (Inicio) --- */
+.hero {
+    text-align: center;
+    padding: 80px 20px;
+    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://via.placeholder.com/1200x500?text=SkullMaster+Oversize') no-repeat center center/cover;
+    border-radius: 8px;
+    margin-bottom: 60px;
+}
+
+.hero h2 {
+    font-size: 3.5em;
+    margin-bottom: 20px;
+    color: var(--color-accent-red); /* Título del hero en rojo */
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+}
+
+.hero p {
+    font-size: 1.4em;
+    margin-bottom: 40px;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.cta-button {
+    display: inline-block;
+    background-color: var(--color-accent-red);
+    color: var(--color-text-light);
+    padding: 15px 30px;
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: 1.2em;
+    text-transform: uppercase;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.cta-button:hover {
+    background-color: var(--color-button-hover);
+    transform: scale(1.05); /* Efecto de crecimiento al pasar el mouse */
+}
+
+/* --- 5. Productos y Grillas --- */
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Columnas responsivas */
+    gap: 30px;
+    margin-top: 30px;
+}
+
+.product-card {
+    background-color: var(--color-bg-dark);
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    overflow: hidden;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    padding-bottom: 20px; /* Espacio para el botón */
+}
+
+.product-card:hover {
+    transform: translateY(-10px); /* Ligero desplazamiento hacia arriba */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+}
+
+.product-card img {
+    width: 100%;
+    height: 350px; /* Altura fija para las imágenes de producto */
+    object-fit: cover; /* Asegura que la imagen cubra el espacio */
+    margin-bottom: 15px;
+}
+
+.product-card h3 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+    color: var(--color-accent-red);
+}
+
+.product-card .price {
+    font-size: 1.3em;
+    font-weight: bold;
+    color: var(--color-text-light);
+    margin-bottom: 20px;
+}
+
+.product-card button {
+    background-color: var(--color-accent-red);
+    color: var(--color-text-light);
+    padding: 12px 25px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    font-weight: bold;
+    text-transform: uppercase;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.product-card button:hover {
+    background-color: var(--color-button-hover);
+    transform: scale(1.03);
+}
+
+.product-filter {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 30px;
+    align-items: center;
+    justify-content: flex-start; /* Alinea los filtros a la izquierda */
+}
+
+.product-filter label {
+    font-weight: bold;
+    font-size: 1.1em;
+}
+
+.product-filter select {
+    padding: 8px 12px;
+    border-radius: 5px;
+    border: 1px solid var(--color-border);
+    background-color: var(--color-bg-dark);
+    color: var(--color-text-light);
+    font-size: 1em;
+    cursor: pointer;
+}
+
+/* --- 6. Atención al Cliente (Formulario y FAQ) --- */
+.faq details {
+    background-color: rgba(0, 0, 0, 0.4);
+    border: 1px solid var(--color-border);
+    border-radius: 5px;
+    margin-bottom: 15px;
+    padding: 15px;
+    cursor: pointer;
+}
+
+.faq summary {
+    font-weight: bold;
+    font-size: 1.1em;
+    color: var(--color-accent-red);
+    outline: none; /* Elimina el borde de enfoque por defecto */
+}
+
+.faq details p {
+    padding-top: 10px;
+    margin-bottom: 0;
+    color: var(--color-text-light);
+}
+
+.contact-form form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.contact-form label {
+    font-weight: bold;
+    margin-bottom: 5px;
+    display: block; /* Asegura que la etiqueta esté en su propia línea */
+}
+
+.contact-form input[type="text"],
+.contact-form input[type="email"],
+.contact-form textarea {
+    padding: 12px;
+    border-radius: 5px;
+    border: 1px solid var(--color-border);
+    background-color: rgba(0, 0, 0, 0.6);
+    color: var(--color-text-light);
+    font-size: 1em;
+    width: 100%; /* Ocupa todo el ancho disponible */
+}
+
+.contact-form input[type="text"]:focus,
+.contact-form input[type="email"]:focus,
+.contact-form textarea:focus {
+    border-color: var(--color-accent-red); /* Borde rojo al enfocar */
+    outline: none;
+}
+
+.contact-form textarea {
+    resize: vertical; /* Permite redimensionar verticalmente */
+}
+
+.contact-form button[type="submit"] {
+    background-color: var(--color-accent-red);
+    color: var(--color-text-light);
+    padding: 15px 30px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1.2em;
+    font-weight: bold;
+    text-transform: uppercase;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    align-self: flex-start; /* Alinea el botón a la izquierda */
+}
+
+.contact-form button[type="submit"]:hover {
+    background-color: var(--color-button-hover);
+    transform: scale(1.03);
+}
+
+.contact-info p {
+    margin-bottom: 10px;
+    font-size: 1.1em;
+}
+
+.contact-info strong {
+    color: var(--color-accent-red);
+}
+
+/* --- 7. Footer --- */
+footer {
+    background-color: var(--color-bg-dark);
+    color: var(--color-text-light);
+    text-align: center;
+    padding: 20px;
+    border-top: 2px solid var(--color-border);
+    margin-top: auto; /* Empuja el footer hacia abajo */
+    font-size: 0.9em;
+}
+
+footer .social-links a {
+    color: var(--color-text-light);
+    margin: 0 10px;
+    font-weight: bold;
+}
+
+footer .social-links a:hover {
+    color: var(--color-accent-red);
+}
+
+
+/* --- 8. Media Queries (Responsivo - Ajustes para móviles) --- */
+@media (max-width: 768px) {
+    header {
+        padding: 15px 20px;
+    }
+
+    nav {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    nav ul {
+        flex-direction: column;
+        width: 100%;
+        margin-top: 15px;
+    }
+
+    nav ul li {
+        margin: 0 0 10px 0;
+        width: 100%;
+        text-align: center;
+    }
+
+    nav ul li a {
+        display: block;
+        padding: 10px 0;
+        border-bottom: 1px solid var(--color-border);
+    }
+
+    .hero {
+        padding: 60px 15px;
+    }
+
+    .hero h2 {
+        font-size: 2.5em;
+    }
+
+    .hero p {
+        font-size: 1.2em;
+    }
+
+    .product-grid {
+        grid-template-columns: 1fr; /* Una columna en pantallas pequeñas */
+    }
+
+    main {
+        padding: 20px 15px;
+    }
+
+    section {
+        padding: 20px;
+    }
+
+    h1 { font-size: 2em; }
+    h2 { font-size: 1.8em; }
+    h3 { font-size: 1.5em; }
+}
+
+@media (max-width: 480px) {
+    nav .logo h1 {
+        font-size: 2em;
+    }
+
+    .cta-button {
+        padding: 12px 25px;
+        font-size: 1em;
+    }
+}

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Productos | SkullMaster</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <header>
+        <nav>
+            <div class="logo">
+                <a href="index.html"><h1>SkullMaster</h1></a>
+            </div>
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="productos.html">Productos</a></li>
+                <li><a href="atencion_cliente.html">Atención al Cliente</a></li>
+                <li><a href="carrito.html" class="cart-icon">🛒 Carrito (<span id="cart-count">0</span>)</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="products-listing">
+            <h2>Todos Nuestros Productos Oversize</h2>
+            <div class="product-filter">
+                <label for="category">Categoría:</label>
+                <select id="category">
+                    <option value="all">Todas</option>
+                    <option value="camisetas">Camisetas</option>
+                    <option value="pantalones">Pantalones</option>
+                    <option value="gorros">Gorros</option>
+                    <option value="patinetas">Patinetas</option>
+                    <option value="tenis">Tenis</option>
+                    </select>
+            </div>
+
+            <div class="product-grid">
+                <article class="product-card">
+                    <img src="img/producto1.png" alt="Camisa Oversize">
+                    <h3>Camisa Oversize "Classic Anterons"</h3>
+                    <p class="price">$60.000 COP</p>
+                    <p class="size">Tallas: S, M, L, XL, XXL</p>
+                    <p class="description">Una camisa negra con diseño 80's clásica con un corte oversize para un look relajado pero con estilo.</p>
+                    <button>Añadir al Carrito</button>
+                </article>
+
+                <article class="product-card">
+                    <img src="img/pantalon.png" alt="Pantalón Oversize">
+                    <h3>Pantalón Cargo Oversize "Urban Camo"</h3>
+                    <p class="price">$85.000 COP</p>
+                    <p class="size">Tallas: 30, 32, 34, 36, 38</p>
+                    <p class="description">Pantalones cargo negro con un estampado blanco urbano y un corte oversize para máxima comodidad y estilo.</p>
+                    <button>Añadir al Carrito</button>
+                </article>
+
+                <article class="product-card">
+                    <img src="img/image.png" alt="Gorro Oversize">
+                    <h3>Gorro Beanie Oversize "Street Style"</h3>
+                    <p class="price">$35.000 COP</p>
+                    <p class="size">Talla Única</p>
+                    <p class="description">Un gorro beanie oversize Santa Cruz perfecto para complementar tu look urbano.</p>
+                    <button>Añadir al Carrito</button>
+                </article>
+
+                <article class="product-card">
+                     <img src="img/skate.png" alt="Patineta">
+                    <h3>Patineta "SkullMaster Pro"</h3>
+                    <p class="price">$150.000 COP</p>
+                    <p class="size">Talla: 8.25"</p>
+                    <p class="description">Madero Skateboard Santa Cruz, Garantia de por vida.</p>
+                    <button>Añadir al Carrito</button>
+                </article>
+
+                <article class="product-card">
+                     <img src="img/tenis.png" alt="Tenis de Skate">
+                    <h3>Tenis de Skate "Oversize Edition"</h3>
+                    <p class="price">$420.000 COP</p>
+                    <p class="size">Tallas: 38-44</p>
+                    <p class="description">Tenis de skate vans diseñados para un rendimiento óptimo y un estilo oversize único.</p>
+                    <button>Añadir al Carrito</button>
+                </article>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 SkullMaster. Todos los derechos reservados.</p>
+        <div class="social-links">
+            <a href="#">Facebook</a> |
+            <a href="#">Instagram</a>
+        </div>
+    </footer>
+
+</body>
+</html>
